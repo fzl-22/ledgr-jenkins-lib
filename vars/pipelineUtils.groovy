@@ -32,7 +32,6 @@ def getMetadata(String branchName) {
   def isDeployable = getIsDeployable(env)
 
   return [
-    'BRANCH_NAME': branchName,
     'PROJECT_ENV': env,
     'PROJECT_NAMESPACE': namespace,
     'IS_DEPLOYABLE': isDeployable,
