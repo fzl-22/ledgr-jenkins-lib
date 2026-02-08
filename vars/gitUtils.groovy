@@ -18,6 +18,10 @@ def getBranchName() {
 }
 
 def getShortCommitID() {
+  if (env.GIT_COMMIT) {
+    return env.GIT_COMMIT.take(7)
+  }
+
   try {
     return sh(returnStdout: true, script: 'git rev-parse --short HEAD').trim()
   } catch (Exception e) {
@@ -27,6 +31,10 @@ def getShortCommitID() {
 }
 
 def getFullCommitID() {
+  if (env.GIT_COMMIT) {
+    return env.GIT_COMMIT
+  }
+
   try {
     return sh(returnStdout: true, script: 'git rev-parse HEAD').trim()
   } catch (Exception e) {
