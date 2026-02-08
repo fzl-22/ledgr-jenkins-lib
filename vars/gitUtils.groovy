@@ -18,6 +18,7 @@ def getBranchName() {
 }
 
 def getShortCommitID() {
+  echo "DEBUG: ${env.GIT_COMMIT}"
   if (env.GIT_COMMIT) {
     return env.GIT_COMMIT.take(7)
   }
