@@ -9,13 +9,13 @@ def getEnv(String branchName) {
     case ['development', 'develop']:
       return 'dev'
     default:
-      return null
+      return ""
   }
 }
 
 def getNamespace(String env) {
   if (!env) {
-    return null
+    return ""
   }
 
   return "ledgr-${env}"
