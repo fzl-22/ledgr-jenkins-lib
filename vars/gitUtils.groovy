@@ -14,7 +14,7 @@ def getBranchName() {
     }
   }
 
-  return branch.replace('origin/', '')
+  return branchName.replace('origin/', '')
 }
 
 def getShortCommitID() {
