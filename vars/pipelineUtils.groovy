@@ -27,13 +27,13 @@ def getIsDeployable(String env) {
 }
 
 def getMetadata(String branchName) {
-  def env = getEnv(branchName)
-  def namespace = getNamespace(env)
-  def isDeployable = getIsDeployable(env)
+  def projectEnv = getEnv(branchName)
+  def projectNamespace = getNamespace(env)
+  def projectIsDeployable = getIsDeployable(env)
 
   return [
-    'PROJECT_ENV': env,
-    'PROJECT_NAMESPACE': namespace,
-    'IS_DEPLOYABLE': isDeployable,
+    'PROJECT_ENV': projectEnv,
+    'PROJECT_NAMESPACE': projectNamespace,
+    'PROJECT_IS_DEPLOYABLE': projectIsDeployable,
   ]
 }
