@@ -20,3 +20,20 @@ def getNamespace(String env) {
 
   return "ledgr-${env}"
 }
+
+def getIsDeployable(String env) {
+  def allowedEnvs = ['prd', 'qa', 'dev']
+  return allowedEnvs.contains(env)
+}
+
+def getMetadata(String branchName) {
+  def env = getEnv(branchName)
+  def namespace = getNamespace(env)
+  def isDeployable = getIsDeployable(env)
+
+  return [
+    'PROJECT_ENV': env,
+    'PROJECT_NAMESPACE': namespace,
+    'IS_DEPLOYABLE': isDeployable,
+  ]
+}
